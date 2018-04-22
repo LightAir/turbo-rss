@@ -1,16 +1,12 @@
 {
-  "name": "rss",
-  "version": "1.2.2",
-  "description": "RSS feed generator. Add RSS feeds to any project. Supports enclosures and GeoRSS.",
+  "name": "turbo-rss",
+  "version": "1.0.0",
+  "description": "RSS based, feed generator for Yandex turbo",
   "keywords": [
-    "rss",
-    "xml",
-    "atom",
-    "podcasts",
-    "ghost",
-    "feed",
-    "feed builder",
-    "rss feed"
+    "yandex",
+    "turbo",
+    "rss yandex",
+    "yandex turbo"
   ],
   "main": "lib/index",
   "scripts": {
@@ -18,12 +14,13 @@
     "lint": "grunt lint",
     "test:browser": "prova -b"
   },
-  "homepage": "http://github.com/dylang/node-rss",
+  "homepage": "http://github.com/lightair/yandex-turbo",
   "author": {
-    "name": "Dylan Greene",
-    "email": "dylang@gmail.com"
+    "name": "LightAir",
+    "email": "public@softroot.ru"
   },
   "contributors": [
+    "LightAir <public@softroot.ru>",
     "Dylan Greene <dylang@gmail.com>",
     "Xavier Damman <xdamman@gmail.com>",
     "Michael R. Lange",
@@ -37,10 +34,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "http://github.com/dylang/node-rss.git"
+    "url": "http://github.com/lightair/yandex-turbo.git"
   },
   "bugs": {
-    "url": "http://github.com/dylang/node-rss/issues"
+    "url": "http://github.com/lightair/yandex-turbo/issues"
   },
   "testling": {
     "files": "test/*.js",
@@ -56,7 +53,6 @@
     ]
   },
   "dependencies": {
-    "mime-types": "2.1.13",
     "xml": "1.0.1"
   },
   "devDependencies": {

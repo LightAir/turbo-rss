@@ -1,12 +1,6 @@
-## rss  [![Build Status](http://img.shields.io/travis/dylang/node-rss.svg)](https://travis-ci.org/dylang/node-rss) [![rss](http://img.shields.io/npm/dm/rss.svg)](https://www.npmjs.org/package/rss)
+## turbo-rss  [![Build Status](http://img.shields.io/travis/lightair/turbo-rss.svg)](https://travis-ci.org/lightair/turbo-rss)
 
-> RSS feed generator. Add RSS feeds to any project. Supports enclosures and GeoRSS.
-
-
-
-
-
-
+>RSS based, feed generator for Yandex turbo.
 
 
 ### Usage
@@ -14,18 +8,16 @@
 #### Create a new feed
 
 ```js
-var RSS = require('rss');
+var TS = require('turbo-rss');
 
-var feed = new RSS(feedOptions);
+var feed = new TS(feedOptions);
 ```
 
 ##### `feedOptions`
 
  * `title` **string** Title of your site or feed
  * `description` _optional_ **string** A short description of the feed.
- * `generator` _optional_  **string** Feed generator.
- * `feed_url` **url string** Url to the rss feed.
- * `site_url` **url string** Url to the site that the feed is for.
+ * `link` **url string** Url to the site that the feed is for.
  * `image_url` _optional_  **url string** Small image for feed readers to use.
  * `docs` _optional_ **url string** Url to documentation on this feed.
  * `managingEditor` _optional_ **string** Who manages content in this feed.
