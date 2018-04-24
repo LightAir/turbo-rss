@@ -1,6 +1,6 @@
 # WIP
 
-## turbo-rss  [![Build Status](http://img.shields.io/travis/lightair/turbo-rss.svg)](https://travis-ci.org/lightair/turbo-rss)
+## turbo-rss  [![Build Status](https://travis-ci.org/LightAir/turbo-rss.svg)](https://travis-ci.org/lightair/turbo-rss)
 
 >RSS based, feed generator for Yandex turbo.
 
