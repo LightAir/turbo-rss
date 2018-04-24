@@ -1,8 +1,8 @@
 // prova is a wrapper for tape
 // use npm run test:browser to run tests in a browser
-var test = require('prova');
+var test = require('tape');
 
-var RSS = require('..');
+var YTurbo = require('..');
 var xml2js = require('xml2js');
 var q = require('q');
 
@@ -14,7 +14,7 @@ require('mockdate').set('Wed, 10 Dec 2014 19:04:57 GMT');
 
 test('empty feed', function(t) {
     t.plan(2);
-    var feed = new RSS();
+    var feed = new YTurbo();
     t.equal(feed.xml(), expectedOutput.default);
     feed.item();
     t.equal(feed.xml(), expectedOutput.defaultOneItem);
@@ -22,7 +22,7 @@ test('empty feed', function(t) {
 
 test('indentation', function(t) {
     t.plan(4);
-    var feed = new RSS({
+    var feed = new YTurbo({
                 title: 'title',
                 description: 'description',
                 generator: 'Example Generator',
@@ -98,7 +98,7 @@ test('enclosure', function(t) {
 
     t.plan(1);
 
-    var feed = new RSS({
+    var feed = new YTurbo({
         title: 'title',
         description: 'description',
         feed_url: 'http://example.com/rss.xml',
@@ -142,7 +142,7 @@ test('enclosure_mimetype_override', function(t) {
 
     t.plan(1);
 
-    var feed = new RSS({
+    var feed = new YTurbo({
         title: 'title',
         description: 'description',
         feed_url: 'http://example.com/rss.xml',
@@ -177,7 +177,7 @@ test('enclosure_mimetype_override', function(t) {
 
 test('geoRSS', function(t) {
     t.plan(1);
-    var feed = new RSS({
+    var feed = new YTurbo({
         title: 'title',
         description: 'description',
         feed_url: 'http://example.com/rss.xml',
@@ -207,7 +207,7 @@ test('geoRSS', function(t) {
 test('PubSubHubbub hub', function(t) {
     t.plan(1);
 
-    var feed = new RSS({
+    var feed = new YTurbo({
         title: 'title',
         description: 'description',
         feed_url: 'http://example.com/rss.xml',
@@ -222,7 +222,7 @@ test('PubSubHubbub hub', function(t) {
 test('custom elements', function(t) {
     t.plan(1);
 
-    var feed = new RSS({
+    var feed = new YTurbo({
                 title: 'title',
                 description: 'description',
                 feed_url: 'http://example.com/rss.xml',
@@ -280,7 +280,7 @@ test('custom elements', function(t) {
 test('custom namespaces', function(t) {
     t.plan(1);
 
-    var feed = new RSS({
+    var feed = new YTurbo({
                 title: 'title',
                 description: 'description',
                 feed_url: 'http://example.com/rss.xml',
