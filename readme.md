@@ -45,7 +45,7 @@ feed.item(itemOptions);
  * `date` **string** Время публикации контента на сайте источника.
  * `content` **string** Содержимое страницы
  
- *Будет добавлено в новых версиях turbo:source, turbo:topic, yandex:related, menu, pubDate как алиас date
+ *Будет добавлено в новых версиях turbo:source, turbo:topic, yandex:related, menu, pubDate как алиас date*
  
 ##### Получение XML
 
