@@ -1,6 +1,6 @@
 {
   "name": "turbo-rss",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "RSS based, feed generator for Yandex turbo",
   "keywords": [
     "yandex",
@@ -14,7 +14,7 @@
     "lint": "grunt lint",
     "test:browser": "prova -b"
   },
-  "homepage": "http://github.com/lightair/yandex-turbo",
+  "homepage": "https://github.com/LightAir/turbo-rss",
   "author": {
     "name": "LightAir",
     "email": "public@softroot.ru"
