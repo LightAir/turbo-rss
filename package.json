@@ -1,6 +1,6 @@
 {
   "name": "turbo-rss",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "RSS based, feed generator for Yandex turbo",
   "keywords": [
     "yandex",
@@ -34,10 +34,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "http://github.com/lightair/yandex-turbo.git"
+    "url": "https://github.com/LightAir/turbo-rss.git"
   },
   "bugs": {
-    "url": "http://github.com/lightair/yandex-turbo/issues"
+    "url": "https://github.com/LightAir/turbo-rss/issues"
   },
   "testling": {
     "files": "test/*.js",
