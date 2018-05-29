@@ -1,27 +1,25 @@
 // prova is a wrapper for tape
 // use npm run test:browser to run tests in a browser
-var test = require('tape');
+const test = require('tape');
 
-var YTurbo = require('..');
+const YTurbo = require('..');
 
-var includeFolder = require('include-folder');
-var expectedOutput = includeFolder(__dirname + '/expectedOutput', /.*\.xml$/);
+const includeFolder = require('include-folder');
+const expectedOutput = includeFolder(__dirname + '/expectedOutput', /.*\.xml$/);
 
 require('mockdate').set('Wed, 10 Dec 2014 19:04:57 GMT');
 
 test('empty feed', function(t) {
     t.plan(2);
-    var feed = new YTurbo();
+    let feed = new YTurbo();
     t.equal(feed.xml(), expectedOutput.default.trim());
     feed.item();
     t.equal(feed.xml(), expectedOutput.defaultOneItem.trim());
 });
 
 test('default item', function(t) {
-
     t.plan(1);
-
-    var feed = new YTurbo({
+    let feed = new YTurbo({
         title: 'title',
         description: 'description',
         link: 'http://example.com/rss.xml',
@@ -31,4 +29,34 @@ test('default item', function(t) {
     feed.item({});
 
     t.equal(feed.xml(), expectedOutput.defaultItem.trim());
+});
+
+test('related item', function(t) {
+    t.plan(1);
+    let feed = new YTurbo({
+        title: 'title',
+        description: 'description',
+        link: 'http://example.com/rss.xml',
+        site_url: 'http://example.com'
+    });
+
+    feed.item({
+        title:  'item title',
+        image_url: 'http://example.com/example.png',
+        url: 'http://example.com/article4?this&that',
+        author: 'LightAir',
+        date: 'May 27, 2012',
+        content: '<p>hello</p>',
+        related: [{
+            link: 'http://example.com/related/post1',
+            image_url: 'http://example.com/i/img1.jpg',
+            text: 'related link text 1'
+        }, {
+            link: 'http://example.com/related/post2',
+            image_url: 'http://example.com/i/img2.jpg',
+            text: 'related link text 2'
+        }]
+    });
+
+    t.equal(feed.xml(), expectedOutput.relatedItem.trim());
 });
