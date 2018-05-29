@@ -44,7 +44,8 @@ feed.item(itemOptions);
  * `author` _optional_  **string**  Автор статьи, размещенной на странице.
  * `date` **string** Время публикации контента на сайте источника.
  * `content` **string** Содержимое страницы
- 
+ * `related` _optional_ **object** Содержимое страницы
+  
  *Будет добавлено в новых версиях turbo:source, turbo:topic, yandex:related, menu, pubDate как алиас date*
  
 ##### Получение XML
@@ -73,7 +74,16 @@ feed.item({
     url: 'http://example.com/article4?this&that',
     author: 'LightAir',
     date: 'May 27, 2012',
-    content: '<p>hello</p>'
+    content: '<p>hello</p>',
+    related: [{
+      link: 'http://example.com/related/post1',
+      image_url: 'http://example.com/i/img1.jpg',
+      text: 'related link text 1'
+    }, {
+      link: 'http://example.com/related/post2',
+      image_url: 'http://example.com/i/img2.jpg',
+      text: 'related link text 2'
+    }]
 });
 
 // cache the xml to send to clients
