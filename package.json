@@ -1,6 +1,6 @@
 {
   "name": "turbo-rss",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "RSS based, feed generator for Yandex turbo",
   "keywords": [
     "yandex",

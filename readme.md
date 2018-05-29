@@ -44,9 +44,9 @@ feed.item(itemOptions);
  * `author` _optional_  **string**  Автор статьи, размещенной на странице.
  * `date` **string** Время публикации контента на сайте источника.
  * `content` **string** Содержимое страницы
- * `related` _optional_ **object** Содержимое страницы
+ * `related` _optional_ **object** Аффилированные ссылки `yandex:related` в конце статьи.
   
- *Будет добавлено в новых версиях turbo:source, turbo:topic, yandex:related, menu, pubDate как алиас date*
+ *Будет добавлено в новых версиях turbo:source, turbo:topic, menu, pubDate как алиас date*
  
 ##### Получение XML
 
