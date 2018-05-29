@@ -3,7 +3,7 @@
 ## turbo-rss
 
 [![Build Status](https://travis-ci.org/LightAir/turbo-rss.svg)](https://travis-ci.org/LightAir/turbo-rss)
-![npm](https://img.shields.io/npm/v/npm.svg)
+[![npm](https://img.shields.io/npm/v/npm.svg)](https://www.npmjs.com/package/turbo-rss)
 ![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg)
 
 
