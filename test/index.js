@@ -45,7 +45,7 @@ test('related item', function(t) {
         image_url: 'http://example.com/example.png',
         url: 'http://example.com/article4?this&that',
         author: 'LightAir',
-        date: 'May 27, 2012',
+        date: 'May 27, 2018 00:00 AM',
         content: '<p>hello</p>',
         related: [{
             link: 'http://example.com/related/post1',
