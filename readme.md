@@ -3,10 +3,10 @@
 ## turbo-rss
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/6525d2aabf20185b68b6/maintainability)](https://codeclimate.com/github/LightAir/turbo-rss/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/6525d2aabf20185b68b6/test_coverage)](https://codeclimate.com/github/LightAir/turbo-rss/test_coverage)
 [![Build Status](https://travis-ci.org/LightAir/turbo-rss.svg)](https://travis-ci.org/LightAir/turbo-rss)
-[![npm](https://img.shields.io/badge/npm%20package-1.0.5-blue.svg?longCache=true&style=flat)](https://www.npmjs.com/package/turbo-rss)
+[![npm](https://img.shields.io/badge/npm%20package-1.0.7-blue.svg?longCache=true&style=flat)](https://www.npmjs.com/package/turbo-rss)
 ![license](https://img.shields.io/packagist/l/doctrine/orm.svg?longCache=true&style=flat)
-
 
 >Генератор RSS разметки для сервиса Турбо-страницы
 
