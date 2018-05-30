@@ -1,6 +1,6 @@
 {
   "name": "turbo-rss",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "RSS based, feed generator for Yandex turbo",
   "keywords": [
     "yandex",
@@ -20,6 +20,7 @@
   },
   "contributors": [
     "LightAir <public@softroot.ru>",
+    "Ivan Pilyugin (aka Archer)",
     "Dylan Greene <dylang@gmail.com>",
     "Xavier Damman <xdamman@gmail.com>",
     "Michael R. Lange",
