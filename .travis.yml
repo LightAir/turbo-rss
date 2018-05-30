@@ -1,8 +1,16 @@
 language: node_js
 sudo: false
+addons:
+  code_climate:
+    repo_token:
+      secure: "Lz3KeRxbJ877gDe0kWNdAg3erDe4TVruP98Xes18N13H8XGyIdWs2GnJiRHHS831tCd3yYu5F643xNXJuQ3omWikvRVr0lu57yBdJVg0dhJwjEnP85DRIU3YmGAe4Ua5qNoMlhZMyZwL6TTHWt30SZ2NK/HmYOr+fI0/H8OTWtrxcMlwYYZkbmhllGAYWnXnZCOCHuIcio7L21pEX/PXtrQMTVNFuebT2Q8GihjoW00KeH8z4t7E+a7MFb427dX7MRYGHHGuu2dAUoDI/P5tz7FIQg83Uz4Jmnzh34Wc9uYLd5lTcRc6Mb7mOVHXO9ZLoVtxE7gB+apN+NkzhPhZjQToyvypwyzUZiHV9xtYj9abUuU5vXEdGTA4+KEy7iM25r7U1cqsVVWsXBckpEpprlvJ2FQbbajP9PZpvnSwFmbPDGFJf2uPs07xtav1F6fpAU9zSg8J+iagS9grmCccNcs4TrExWRCFLRupN2AC9SeLWCb2ux+3IMuqwNkJiiWYNzLMOHru2kxFGgc7+wd3bzREbgZJbYUHCmVchHVcUT2/dn240mSVnLoemP1z91VdxbUN3EwR0Hcp5LnTMqCSQ880QUmFjDFnd0huKXKrKrr61na/wVoUDrcQGg/DKgvGcDm6CqzeHfSM9EHqwbbYx4cZn36ZA1nDiNTMLSxHhn0="
+script: npm run coverage
 before_script:
   - export TZ=Europe/Moscow
   - date
+  - npm install codeclimate-test-reporter istanbul -g
+after_script:
+  - codeclimate-test-reporter < ./coverage/lcov.info
 matrix:
   include:
     - node_js: '8.11.2'
@@ -11,7 +19,3 @@ matrix:
       before_install: npm -g i npm@2
     - node_js: '10.2.1'
       before_install: npm -g i npm@2
-addons:
-  code_climate:
-    repo_token:
-      secure: "Lz3KeRxbJ877gDe0kWNdAg3erDe4TVruP98Xes18N13H8XGyIdWs2GnJiRHHS831tCd3yYu5F643xNXJuQ3omWikvRVr0lu57yBdJVg0dhJwjEnP85DRIU3YmGAe4Ua5qNoMlhZMyZwL6TTHWt30SZ2NK/HmYOr+fI0/H8OTWtrxcMlwYYZkbmhllGAYWnXnZCOCHuIcio7L21pEX/PXtrQMTVNFuebT2Q8GihjoW00KeH8z4t7E+a7MFb427dX7MRYGHHGuu2dAUoDI/P5tz7FIQg83Uz4Jmnzh34Wc9uYLd5lTcRc6Mb7mOVHXO9ZLoVtxE7gB+apN+NkzhPhZjQToyvypwyzUZiHV9xtYj9abUuU5vXEdGTA4+KEy7iM25r7U1cqsVVWsXBckpEpprlvJ2FQbbajP9PZpvnSwFmbPDGFJf2uPs07xtav1F6fpAU9zSg8J+iagS9grmCccNcs4TrExWRCFLRupN2AC9SeLWCb2ux+3IMuqwNkJiiWYNzLMOHru2kxFGgc7+wd3bzREbgZJbYUHCmVchHVcUT2/dn240mSVnLoemP1z91VdxbUN3EwR0Hcp5LnTMqCSQ880QUmFjDFnd0huKXKrKrr61na/wVoUDrcQGg/DKgvGcDm6CqzeHfSM9EHqwbbYx4cZn36ZA1nDiNTMLSxHhn0="
