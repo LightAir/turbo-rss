@@ -45,9 +45,17 @@ feed.item(itemOptions);
  * `author` _optional_  **string**  Автор статьи, размещенной на странице.
  * `date` **string** Время публикации контента на сайте источника.
  * `content` **string** Содержимое страницы
- * `related` _optional_ **object** Аффилированные ссылки `yandex:related` в конце статьи.
-  
+ * `related` _optional_ **array** Аффилированные ссылки `yandex:related` в конце статьи.
+ * `relatedfinity` _optional_  **bool** Непрерывная лента статей
+ 
  *Будет добавлено в новых версиях turbo:source, turbo:topic, menu, pubDate как алиас date*
+ 
+###### related array
+  related должен содержать массив объектов со следующими опциями:
+  
+  * `link` **string** ссылка на статью'
+  * `image_url` **string** ссылка на изображение к статье
+  * `text` **string** текст ссылки
  
 ##### Получение XML
 
