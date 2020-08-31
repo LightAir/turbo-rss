@@ -132,3 +132,40 @@ test('menu', function (t) {
 
     t.equal(feed.xml(), expectedOutput.menu.trim());
 });
+
+test('goals',  function (t) {
+    t.plan(1);
+    let feed = new TR({
+        title: 'title',
+        description: 'description',
+        link: 'http://example.com/rss.xml',
+        site_url: 'http://example.com'
+    });
+
+    feed.item({
+        title: 'item title',
+        image_url: 'http://example.com/example.png',
+        url: 'http://example.com/article4?this&that',
+        author: 'vvm.space',
+        date: 'May 27, 2018 00:00 AM',
+        menu: '<a href="http://example.com/page1.html">Текст ссылки</a> <a href="http://example.com/page2.html">Текст ссылки</a>',
+        goals: [{
+            type: "yandex",
+            id: "turbo-goal-id",
+            counter_id: "12345",
+            name: "order",
+        }],
+        content: '<p>hello</p>',
+        related: [{
+            link: 'http://example.com/related/post1',
+            image_url: 'http://example.com/i/img1.jpg',
+            text: 'related link text 1'
+        }, {
+            link: 'http://example.com/related/post2',
+            image_url: 'http://example.com/i/img2.jpg',
+            text: 'related link text 2'
+        }]
+    });
+
+    t.equal(feed.xml(), expectedOutput.goal.trim());
+});
