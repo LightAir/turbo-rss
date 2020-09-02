@@ -45,6 +45,7 @@ feed.item(itemOptions);
  * `relatedfinity` _optional_  **bool** Непрерывная лента статей
  * `turboSource` _optional_ **string** URL страницы-источника, который можно передать в Яндекс.Метрику.
  * `turboTopic` _optional_ **string** Заголовок страницы, который можно передать в Яндекс.Метрику.
+ * `goals` _optional_ **array** массив типа: { _id_ - внутренний идентификатор цели (turbo-goal-id), _name_ - имя цели, _counter_id_ - id счётчика яндекс-метрики }
 
 ###### menu array
   menu должен содержать массив объектов со следующими опциями:
@@ -84,6 +85,12 @@ feed.item({
     author: 'LightAir',
     date: 'May 27, 2012',
     content: '<p>hello</p>',
+    goals: [{
+        type: "yandex",
+        id: "turbo-goal-id",
+        counter_id: "12345",
+        name: "order",
+    }],
     menu: [{
           link: 'http://example.com/',
           text: 'Главная'
