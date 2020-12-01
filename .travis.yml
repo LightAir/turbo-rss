@@ -13,20 +13,4 @@ after_script:
   - codeclimate-test-reporter < ./coverage/lcov.info
 matrix:
   include:
-    - node_js: '8.11.2'
-      before_install: npm -g i npm@2
-    - node_js: '6.11.2'
-      before_install: npm -g i npm@2
-    - node_js: '10.2.1'
-      before_install: npm -g i npm@2
     - node_js: 'lts/*'
-      before_install: npm -g i npm@2
-    - node_js: '11'
-      before_install: npm -g i npm@2
-    - node_js: '12'
-      before_install: npm -g i npm@2
-    - node_js: '13'
-      before_install: npm -g i npm@2
-    - node_js: '14'
-      before_install: npm -g i npm@2
-    - node_js: '15'
