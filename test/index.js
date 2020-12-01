@@ -1,7 +1,7 @@
-// prova is a wrapper for tape
-// use npm run test:browser to run tests in a browser
+/*
+ * use npm test to run tests
+ */
 const test = require('tape');
-
 const TR = require('..');
 
 const includeFolder = require('include-folder');
@@ -29,6 +29,22 @@ test('default item', function (t) {
     feed.item({});
 
     t.equal(feed.xml(), expectedOutput.defaultItem.trim());
+});
+
+test('default item turbo false', function (t) {
+    t.plan(1);
+    let feed = new TR({
+        title: 'title',
+        description: 'description',
+        link: 'http://example.com/rss.xml',
+        site_url: 'http://example.com',
+    });
+
+    feed.item({
+        turboEnabled: false
+    });
+
+    t.equal(feed.xml(), expectedOutput.defaultItemTurboFalse.trim());
 });
 
 test('related item', function (t) {

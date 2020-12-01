@@ -46,7 +46,7 @@ feed.item(itemOptions);
  * `turboSource` _optional_ **string** URL страницы-источника, который можно передать в Яндекс.Метрику.
  * `turboTopic` _optional_ **string** Заголовок страницы, который можно передать в Яндекс.Метрику.
  * `goals` _optional_ **array** массив типа: { _id_ - внутренний идентификатор цели (turbo-goal-id), _name_ - имя цели, _counter_id_ - id счётчика яндекс-метрики }
-
+ * `turboEnabled`_optional_ **bool** Принудительная установка атрибута "turbo". По умолчанию true. Установка в false позволит скрыть отображение турбо-страницы
 ###### menu array
   menu должен содержать массив объектов со следующими опциями:
   
@@ -119,3 +119,11 @@ var xml = feed.xml();
 ```sh
 $ npm test
 ```
+
+## Спасибо
+
+@jahglow
+
+@vvmspace
+
+@crackosok
