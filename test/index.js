@@ -1,5 +1,5 @@
 // prova is a wrapper for tape
-// use npm run test:browser to run tests in a browser
+
 const test = require('tape');
 const TR = require('..');
 
