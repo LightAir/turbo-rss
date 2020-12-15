@@ -1,11 +1,27 @@
-/*
- * use npm test to run tests
- */
+// prova is a wrapper for tape
+// use npm run test:browser to run tests in a browser
 const test = require('tape');
 const TR = require('..');
 
 const includeFolder = require('include-folder');
 const expectedOutput = includeFolder(__dirname + '/expectedOutput', /.*\.xml$/);
+
+const baseOptions = {
+    title: 'title',
+    description: 'description',
+    link: 'http://example.com/rss.xml',
+    site_url: 'http://example.com'
+};
+
+const relatedOptions = [{
+    link: 'http://example.com/related/post1',
+    image_url: 'http://example.com/i/img1.jpg',
+    text: 'related link text 1'
+}, {
+    link: 'http://example.com/related/post2',
+    image_url: 'http://example.com/i/img2.jpg',
+    text: 'related link text 2'
+}];
 
 require('mockdate').set('Wed, 10 Dec 2014 19:04:57 GMT');
 
@@ -19,42 +35,16 @@ test('empty feed', function (t) {
 
 test('default item', function (t) {
     t.plan(1);
-    let feed = new TR({
-        title: 'title',
-        description: 'description',
-        link: 'http://example.com/rss.xml',
-        site_url: 'http://example.com'
-    });
+    let feed = new TR(baseOptions);
 
     feed.item({});
 
     t.equal(feed.xml(), expectedOutput.defaultItem.trim());
 });
 
-test('default item turbo false', function (t) {
-    t.plan(1);
-    let feed = new TR({
-        title: 'title',
-        description: 'description',
-        link: 'http://example.com/rss.xml',
-        site_url: 'http://example.com',
-    });
-
-    feed.item({
-        turboEnabled: false
-    });
-
-    t.equal(feed.xml(), expectedOutput.defaultItemTurboFalse.trim());
-});
-
 test('related item', function (t) {
     t.plan(1);
-    let feed = new TR({
-        title: 'title',
-        description: 'description',
-        link: 'http://example.com/rss.xml',
-        site_url: 'http://example.com'
-    });
+    let feed = new TR(baseOptions);
 
     feed.item({
         title: 'item title',
@@ -64,15 +54,7 @@ test('related item', function (t) {
         date: 'May 27, 2018 00:00 AM',
         menu: '<a href="http://example.com/page1.html">Текст ссылки</a> <a href="http://example.com/page2.html">Текст ссылки</a>',
         content: '<p>hello</p>',
-        related: [{
-            link: 'http://example.com/related/post1',
-            image_url: 'http://example.com/i/img1.jpg',
-            text: 'related link text 1'
-        }, {
-            link: 'http://example.com/related/post2',
-            image_url: 'http://example.com/i/img2.jpg',
-            text: 'related link text 2'
-        }]
+        related: relatedOptions
     });
 
     t.equal(feed.xml(), expectedOutput.relatedItem.trim());
@@ -80,12 +62,7 @@ test('related item', function (t) {
 
 test('related item', function (t) {
     t.plan(1);
-    let feed = new TR({
-        title: 'title',
-        description: 'description',
-        link: 'http://example.com/rss.xml',
-        site_url: 'http://example.com'
-    });
+    let feed = new TR(baseOptions);
 
     feed.item({
         title: 'item title',
@@ -95,15 +72,7 @@ test('related item', function (t) {
         date: 'May 27, 2018 00:00 AM',
         content: '<p>hello</p>',
         relatedfinity: true,
-        related: [{
-            link: 'http://example.com/related/post1',
-            image_url: 'http://example.com/i/img1.jpg',
-            text: 'related link text 1'
-        }, {
-            link: 'http://example.com/related/post2',
-            image_url: 'http://example.com/i/img2.jpg',
-            text: 'related link text 2'
-        }]
+        related: relatedOptions
     });
 
     t.equal(feed.xml(), expectedOutput.relatedItemInfinity.trim());
@@ -111,12 +80,7 @@ test('related item', function (t) {
 
 test('menu', function (t) {
     t.plan(1);
-    let feed = new TR({
-        title: 'title',
-        description: 'description',
-        link: 'http://example.com/rss.xml',
-        site_url: 'http://example.com'
-    });
+    let feed = new TR(baseOptions);
 
     feed.item({
         title: 'item title',
@@ -133,15 +97,7 @@ test('menu', function (t) {
             link: 'http://example.com/about',
             text: 'О сайте',
         }],
-        related: [{
-            link: 'http://example.com/related/post1',
-            image_url: 'http://example.com/i/img1.jpg',
-            text: 'related link text 1'
-        }, {
-            link: 'http://example.com/related/post2',
-            image_url: 'http://example.com/i/img2.jpg',
-            text: 'related link text 2'
-        }]
+        related: relatedOptions
     });
 
     feed.item({});
@@ -151,12 +107,7 @@ test('menu', function (t) {
 
 test('goals',  function (t) {
     t.plan(1);
-    let feed = new TR({
-        title: 'title',
-        description: 'description',
-        link: 'http://example.com/rss.xml',
-        site_url: 'http://example.com'
-    });
+    let feed = new TR(baseOptions);
 
     feed.item({
         title: 'item title',
@@ -166,21 +117,13 @@ test('goals',  function (t) {
         date: 'May 27, 2018 00:00 AM',
         menu: '<a href="http://example.com/page1.html">Текст ссылки</a> <a href="http://example.com/page2.html">Текст ссылки</a>',
         goals: [{
-            type: "yandex",
-            id: "turbo-goal-id",
-            counter_id: "12345",
-            name: "order",
+            type: 'yandex',
+            id: 'turbo-goal-id',
+            counter_id: '12345',
+            name: 'order',
         }],
         content: '<p>hello</p>',
-        related: [{
-            link: 'http://example.com/related/post1',
-            image_url: 'http://example.com/i/img1.jpg',
-            text: 'related link text 1'
-        }, {
-            link: 'http://example.com/related/post2',
-            image_url: 'http://example.com/i/img2.jpg',
-            text: 'related link text 2'
-        }]
+        related: relatedOptions
     });
 
     t.equal(feed.xml(), expectedOutput.goal.trim());
