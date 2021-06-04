@@ -97,7 +97,7 @@ feed.item({
         }, {
           link: 'http://example.com/about',
           text: 'О сайте'
-        }]
+        }],
     related: [{
       link: 'http://example.com/related/post1',
       image_url: 'http://example.com/i/img1.jpg',
