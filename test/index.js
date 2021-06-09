@@ -1,5 +1,3 @@
-// prova is a wrapper for tape
-
 const test = require('tape');
 const TR = require('..');
 
