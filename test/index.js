@@ -24,16 +24,33 @@ const relatedOptions = [{
 require('mockdate').set('Wed, 10 Dec 2014 19:04:57 GMT');
 
 test('empty feed', function (t) {
-    t.plan(2);
-    let feed = new TR();
+    t.plan(3);
+
+    const feed = new TR();
     t.equal(feed.xml(), expectedOutput.default.trim());
+
     feed.item();
     t.equal(feed.xml(), expectedOutput.defaultOneItem.trim());
+
+    feed.item();
+    t.equal(feed.xml(), expectedOutput.defaultTwoItem.trim());
+});
+
+
+test('empty feed constructor', function (t) {
+    t.plan(1);
+
+    const feed = new TR(
+        {},
+        [{}, {}]
+    );
+
+    t.equal(feed.xml(), expectedOutput.defaultTwoItem.trim());
 });
 
 test('default item', function (t) {
     t.plan(1);
-    let feed = new TR(baseOptions);
+    const feed = new TR(baseOptions);
 
     feed.item({});
 
@@ -42,7 +59,7 @@ test('default item', function (t) {
 
 test('related item', function (t) {
     t.plan(1);
-    let feed = new TR(baseOptions);
+    const feed = new TR(baseOptions);
 
     feed.item({
         title: 'item title',
@@ -60,7 +77,7 @@ test('related item', function (t) {
 
 test('related item', function (t) {
     t.plan(1);
-    let feed = new TR(baseOptions);
+    const feed = new TR(baseOptions);
 
     feed.item({
         title: 'item title',
@@ -69,7 +86,7 @@ test('related item', function (t) {
         author: 'LightAir',
         date: 'May 27, 2018 00:00 AM',
         content: '<p>hello</p>',
-        relatedfinity: true,
+        relatedInfinity: true,
         related: relatedOptions
     });
 
@@ -78,7 +95,7 @@ test('related item', function (t) {
 
 test('menu', function (t) {
     t.plan(1);
-    let feed = new TR(baseOptions);
+    const feed = new TR(baseOptions);
 
     feed.item({
         title: 'item title',
@@ -87,7 +104,7 @@ test('menu', function (t) {
         author: 'LightAir',
         date: 'May 27, 2018 00:00 AM',
         content: '<p>hello</p>',
-        relatedfinity: true,
+        relatedInfinity: true,
         menu: [{
             link: 'http://example.com/',
             text: 'Главная',
@@ -103,9 +120,9 @@ test('menu', function (t) {
     t.equal(feed.xml(), expectedOutput.menu.trim());
 });
 
-test('goals',  function (t) {
+test('goals', function (t) {
     t.plan(1);
-    let feed = new TR(baseOptions);
+    const feed = new TR(baseOptions);
 
     feed.item({
         title: 'item title',
@@ -125,4 +142,61 @@ test('goals',  function (t) {
     });
 
     t.equal(feed.xml(), expectedOutput.goal.trim());
+});
+
+test('image caption', function (t) {
+    t.plan(1);
+    const feed = new TR(baseOptions);
+
+    feed.item({
+        title: 'item title',
+        image_url: 'http://example.com/example.png',
+        image_caption: 'this is image caption',
+        url: 'http://example.com/article4?this&that',
+        author: 'LightAir',
+        date: 'May 27, 2018 00:00 AM',
+        menu: '<a href="http://example.com/page1.html">Текст ссылки</a> <a href="http://example.com/page2.html">Текст ссылки</a>',
+        content: '<p>hello</p>',
+        related: relatedOptions
+    });
+
+    t.equal(feed.xml(), expectedOutput.imageCaption.trim());
+});
+
+test('subheading', function (t) {
+    t.plan(1);
+    const feed = new TR(baseOptions);
+
+    feed.item({
+        title: 'item title',
+        subheading: 'Subheading',
+    });
+
+    t.equal(feed.xml(), expectedOutput.subheading.trim());
+});
+
+test('breadcrumbs', function (t) {
+    t.plan(1);
+    const feed = new TR(baseOptions);
+
+    feed.item({
+        title: 'Суп с картофелем',
+        image_url: 'https://example.com/example.png',
+        breadcrumbs: [{
+            link: 'https://example.com/',
+            text: 'Главная',
+        }, {
+            link: 'https://example.com/soups/',
+            text: 'Супы',
+        }, {
+            link: 'https://example.com/soups/with-potatoes/',
+            text: 'Суп с картофелем'
+        }],
+        url: 'https://example.com/soups/with-potatoes/',
+        author: 'LightAir',
+        date: 'May 27, 2018 00:00 AM',
+        content: '<p>Для приготовления супа с картофелем, возьмите</p>'
+    });
+
+    t.equal(feed.xml(), expectedOutput.breadcrumbs.trim());
 });
