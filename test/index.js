@@ -200,3 +200,14 @@ test('breadcrumbs', function (t) {
 
     t.equal(feed.xml(), expectedOutput.breadcrumbs.trim());
 });
+
+test('item extendedHtml', function (t) {
+    t.plan(1);
+    const feed = new TR(baseOptions);
+
+    feed.item({
+        extendedHtml: true
+    });
+
+    t.equal(feed.xml(), expectedOutput.extendedHtml.trim());
+});
